@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    SoftWax\HealthCheck\:
+        resource: '../../*'
+        exclude:
+            - '../../SoftWaxHealthCheckBundle.php'
+            - '../../DependencyInjection'
+            - '../../Resources'
+
+    SoftWax\HealthCheck\Http\HealthCheckAction:
+        arguments:
+            - ~ # value is added in bundle extension
+        tags: ['controller.service_arguments']

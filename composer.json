@@ -1,0 +1,64 @@
+{
+    "name": "softwax/health-check-bundle",
+    "description": "SoftWax Health Check Bundle for Symfony framework",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "keywords": [
+        "health",
+        "check",
+        "monitoring"
+    ],
+    "authors": [
+        {
+            "name": "SoftWax",
+            "homepage": "https://github.com/orgs/SoftWax/people"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "symfony/config": "^6.4 || ^7.0",
+        "symfony/dependency-injection": "^6.4 || ^7.0",
+        "symfony/http-foundation": "^6.4 || ^7.0",
+        "symfony/http-kernel": "^6.4 || ^7.0"
+    },
+    "require-dev": {
+        "doctrine/dbal": "^3.8",
+        "doctrine/persistence": "^2.5",
+        "matthiasnoback/symfony-config-test": "^5.1",
+        "matthiasnoback/symfony-dependency-injection-test": "^5.1",
+        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan-deprecation-rules": "^1.2",
+        "phpstan/phpstan-phpunit": "^1.4",
+        "phpstan/phpstan-strict-rules": "^1.6",
+        "phpunit/phpunit": "^10.5",
+        "softwax/coding-standard": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SoftWax\\HealthCheck\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SoftWaxTests\\HealthCheck\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "check": [
+            "@check:composer",
+            "@check:cs",
+            "@check:stan",
+            "@check:phpunit"
+        ],
+        "check:composer": "composer validate --no-check-all --strict --no-interaction",
+        "check:cs": "vendor/bin/phpcs",
+        "check:phpunit": "vendor/bin/phpunit",
+        "check:stan": "vendor/bin/phpstan analyze"
+    }
+}
