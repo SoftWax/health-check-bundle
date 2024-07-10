@@ -49,6 +49,14 @@ class SoftWaxHealthCheckExtension extends Extension
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getAlias(): string
+    {
+        return 'softwax_health_check';
+    }
+
     private function loadConfigFile(string $file, LoaderInterface $loader): void
     {
         try {
